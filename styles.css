@@ -1,0 +1,135 @@
+:root{--blue:#2e3192;--blue-d:#1f2270;--sky:#29aae2;--ink:#14163a;--mute:#4f5379;--bg:#fff;--alt:#f1f5fb;--line:#d9e0ee;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-text-size-adjust:100%;font-variant-numeric:tabular-nums;-webkit-tap-highlight-color:transparent}
+::selection{background:var(--sky);color:#fff}
+img{max-width:100%;height:auto;display:block}
+a{text-underline-offset:3px}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+
+.top{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;padding-top:max(8px,env(safe-area-inset-top));background:#fff;border-bottom:1px solid var(--line)}
+.brand img{height:36px;width:auto}
+.top nav{display:flex;align-items:center;gap:20px;font-size:.85rem;font-weight:500}
+.top nav a:not(.btn){color:var(--ink);text-decoration:none}
+.top nav a:not(.btn):hover{color:var(--blue);text-decoration:underline}
+@media(max-width:640px){.top nav a:not(.btn){display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:6px;background:var(--blue);color:#fff;font:600 .95rem Montserrat,sans-serif;text-decoration:none;border:2px solid var(--blue);touch-action:manipulation;}
+.btn:hover{background:var(--blue-d)}
+.btn-sm{min-height:40px;padding:0 16px;font-size:.85rem}
+.btn-light{background:#fff;color:var(--blue);border-color:#fff}
+.btn-light:hover{background:var(--alt)}
+.btn-ghost{background:transparent}
+.btn-ghost.light{color:#fff;border-color:#ffffffb3}
+.btn-ghost.light:hover{background:#ffffff1f}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* Primera vista: texto sobre el azul de marca + mapa satelital como prueba */
+.hero{background:var(--blue);color:#fff;display:grid}
+.hero-copy{padding:44px 16px 32px;width:min(560px,100%);margin-inline:auto}
+h1{font-size:clamp(1.9rem,6vw,3.1rem);line-height:1.1;font-weight:800;letter-spacing:-.01em;text-wrap:balance}
+.lead{margin-top:18px;font-weight:300;font-size:1.05rem;color:#e3e5ff;max-width:48ch}
+.hero-map{position:relative}
+#map{height:min(62vh,440px);min-height:320px;width:100%;background:#1d2070;z-index:0}
+.legend{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;padding:12px 16px;font-size:.8rem;background:var(--blue-d);color:#e3e5ff}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:8px;vertical-align:-2px;border:1px solid #fff6}
+@media(min-width:960px){
+  .hero{grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:calc(100svh - 52px)}
+  .hero-copy{align-self:center;padding:64px 48px 64px max(32px,calc((100vw - 1120px)/2));width:auto;margin:0}
+  .hero-map{display:flex;flex-direction:column}
+  #map{flex:1;height:auto}
+}
+
+.block{padding:72px 0}
+.alt{background:var(--alt)}
+h2{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:800;color:var(--blue);line-height:1.2;text-wrap:balance}
+.sub{color:var(--mute);margin:10px 0 32px;max-width:62ch}
+.sub.light{color:#dcdfff}
+.note{margin-top:20px;font-size:.88rem;color:var(--mute);max-width:70ch}
+
+/* Ficha técnica */
+.sheet{display:grid;border-top:2px solid var(--blue)}
+.sheet div{display:grid;grid-template-columns:minmax(96px,1fr) 3fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.sheet dt{font-weight:600;color:var(--blue);font-size:.9rem}
+.sheet dd b{font-weight:800;font-size:1.1rem}
+@media(min-width:900px){.sheet{grid-template-columns:1fr 1fr;column-gap:56px}}
+
+/* Panorama desplazable: en celular ocupa la altura de una foto y se recorre con el dedo */
+.pano{overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;margin-bottom:24px}
+.pano img{height:clamp(220px,34vw,440px);width:auto;max-width:none;object-fit:cover}
+@media(min-width:1200px){.pano{overflow:hidden}.pano img{width:100%;height:auto;max-height:none}}
+.gallery{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr);gap:16px}}
+.gallery button{all:unset;display:block;cursor:zoom-in;width:100%;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px #14163a14,0 6px 16px -8px #14163a40}
+.gallery button:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .7s var(--ease)}
+.gallery button:hover img{transform:scale(1.05)}
+.gallery span{display:block;padding:10px 12px;font-size:.8rem;line-height:1.35;color:var(--mute)}
+.gallery li{overflow:hidden}
+dialog{margin:auto;border:0;padding:0;background:transparent;max-width:min(96vw,1200px);max-height:94svh;color:#fff;overflow:visible}
+dialog::backdrop{background:#0b0c2ad9}
+dialog[open]{animation:rise .35s var(--ease)}
+dialog img{display:block;max-width:100%;max-height:80svh;margin-inline:auto;border-radius:6px}
+dialog p{text-align:center;margin-top:10px;font-size:.9rem}
+dialog .close{all:unset;display:block;margin:12px auto 0;padding:12px 24px;min-height:48px;box-sizing:border-box;border:2px solid #ffffffb3;border-radius:6px;font:600 .9rem Montserrat,sans-serif;cursor:pointer}
+dialog .close:hover{background:#ffffff1f}
+dialog .close:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.plano{display:block;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;max-width:960px}
+.plano img{width:100%}
+
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:520px}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);background:var(--alt)}
+tr:last-child td{border-bottom:0}
+td:last-child{font-weight:600;color:var(--blue)}
+
+.contact{background:var(--blue);color:#fff}
+.contact h2{color:#fff}
+footer{background:#0f1140;color:#cfd2f3;padding:40px 0 calc(40px + env(safe-area-inset-bottom));font-size:.85rem}
+.foot{display:grid;gap:18px}
+.foot img{height:40px;width:auto;filter:brightness(0) invert(1)}
+.foot strong{color:#fff}
+.legal{font-size:.78rem;opacity:.8;max-width:70ch}
+
+/* Superficies del navegador */
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.hero :focus-visible,.contact :focus-visible{outline-color:#fff}
+html{scrollbar-color:var(--blue) #e8ecf6}
+.leaflet-container{font-family:Montserrat,sans-serif}
+
+/* Movimiento: el contenido es visible por defecto; .js activa las entradas */
+.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2s var(--ease) .5s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fill{fill-opacity:0;animation:draw 2s var(--ease) .5s forwards,fillin 1.2s ease-out 1.8s forwards}
+@keyframes fillin{to{fill-opacity:.14}}
+.leaflet-tile-pane{animation:mapin 1.4s var(--ease) both}
+@keyframes mapin{from{opacity:0;transform:scale(1.06)}}
+
+.js .hero-copy>*{opacity:0;transform:translateY(22px);animation:rise .9s var(--ease) forwards}
+.js .hero-copy>:nth-child(1){animation-delay:.1s}
+.js .hero-copy>:nth-child(2){animation-delay:.25s}
+.js .hero-copy>:nth-child(3){animation-delay:.4s}
+@keyframes rise{to{opacity:1;transform:none}}
+.js .legend{animation:rise .8s var(--ease) 1.2s both}
+
+.js [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0)*70ms)}
+.js [data-reveal].in{opacity:1;transform:none}
+
+.sheet div{transition:background .25s var(--ease),padding-left .25s var(--ease)}
+.sheet div:hover{background:var(--alt);padding-left:10px}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:var(--alt)}
+.btn:active{transform:scale(.97)}
+.btn{transition:background .2s var(--ease),transform .15s var(--ease)}
+.plano img{transition:transform .8s var(--ease)}
+.plano:hover img{transform:scale(1.03)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .draw{animation:none;stroke-dashoffset:0;stroke-dasharray:none}
+  .fill{animation:none;fill-opacity:.14}
+  .leaflet-tile-pane,.js .legend{animation:none}
+  .js .hero-copy>*,.js [data-reveal]{opacity:1;transform:none;animation:none;transition:none}
+  .plano img,.sheet div,.btn{transition:none}
+}

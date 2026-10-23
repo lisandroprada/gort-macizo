@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dos macizos en Rawson · 9,8 ha sobre el brazo del río Chubut</title>
+<meta name="description" content="Dos macizos forestados a 5 km de Rawson, Chubut: 5,57 ha y 4,29 ha con frente a calle, energía, gas y agua, y fondo al brazo del río. Venta en cuatro fracciones sin loteo.">
+<meta name="theme-color" content="#2e3192">
+<link rel="icon" href="assets/logo/propietas-isotipo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.className="js"</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#inicio" aria-label="Propietas Inmobiliaria"><img src="assets/logo/propietas-logo.svg" alt="Propietas Inmobiliaria" width="121" height="50"></a>
+  <nav aria-label="Secciones">
+    <a href="#macizos">Macizos</a>
+    <a href="#terreno">Fotos</a>
+    <a href="#plano">Plano</a>
+    <a href="#fraccionamiento">Fraccionamiento</a>
+    <a href="#contacto" class="btn btn-sm">Consultar</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Dos macizos forestados sobre el brazo del río Chubut</h1>
+      <p class="lead">A 5 km, diez minutos del casco urbano de Rawson. 9,85 ha con frente a calle con energía eléctrica, gas y agua, para vender en cuatro fracciones de aproximadamente 2,5 ha, sin loteo.</p>
+      <div class="cta">
+        <a class="btn btn-light" href="#contacto">Solicitar información</a>
+        <a class="btn btn-ghost light" id="gmaps" target="_blank" rel="noopener" href="#">Abrir en Google Maps</a>
+      </div>
+    </div>
+    <div class="hero-map">
+      <div id="map" role="region" aria-label="Mapa satelital de los macizos"></div>
+      <ul class="legend">
+        <li><i style="background:#29aae2"></i>Parcela 21</li>
+        <li><i style="background:#ffffff"></i>Parcela 20</li>
+        <li><i style="background:#e53935"></i>Zona baja</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="macizos" class="wrap block">
+    <h2>Los dos macizos</h2>
+    <p class="sub">Parcelas 21 y 20 de la Chacra 51, Departamento Rawson, según croquis de título. Los límites del mapa son orientativos; rigen las medidas del plano de mensura.</p>
+    <dl class="sheet">
+      <div><dt>Parcela 21</dt><dd><b>55.657 m²</b> · 5,57 ha</dd></div>
+      <div><dt>Parcela 20</dt><dd><b>42.851 m²</b> · 4,29 ha</dd></div>
+      <div><dt>Total</dt><dd><b>98.508 m²</b> · 9,85 ha</dd></div>
+      <div><dt>Frente</dt><dd>Calle con red de agua, energía eléctrica y gas</dd></div>
+      <div><dt>Fondo</dt><dd>Brazo del río Chubut</dd></div>
+      <div><dt>Terreno</dt><dd>Forestado</dd></div>
+      <div><dt>Distancia</dt><dd>5 km del casco urbano de Rawson · 10 minutos</dd></div>
+      <div><dt>Zona baja</dt><dd>Unos 3.500 m² dentro de la parcela 21, marcados en rojo en el mapa</dd></div>
+    </dl>
+  </section>
+
+  <section id="terreno" class="block alt">
+    <div class="wrap">
+      <h2>El terreno</h2>
+      <p class="sub">Fotografías tomadas en los macizos: arboleda de álamos, pastizal y la calle de frente con el tendido eléctrico.</p>
+    </div>
+    <div class="pano" tabindex="0" aria-label="Fotografía panorámica del terreno, desplazable">
+      <img src="assets/fotos/panoramica.jpg" alt="Panorámica del terreno con calle de tierra, postes de energía y arboleda al fondo" width="3200" height="871" loading="lazy">
+    </div>
+    <div class="wrap">
+      <ul class="gallery" id="gallery"></ul>
+    </div>
+    <dialog id="viewer" aria-label="Foto ampliada">
+      <img alt="">
+      <p></p>
+      <button type="button" class="close" aria-label="Cerrar">Cerrar</button>
+    </dialog>
+  </section>
+
+  <section id="plano" class="wrap block">
+    <h2>Plano de mensura</h2>
+    <p class="sub">Croquis según título. Toque la imagen para ampliarla.</p>
+    <a class="plano" href="assets/plano-rotado.jpg" target="_blank" rel="noopener"><img src="assets/plano-rotado.jpg" alt="Croquis según título de las parcelas 20 y 21, Chacra 51, Rawson" loading="lazy" width="2040" height="918"></a>
+  </section>
+
+  <section id="fraccionamiento" class="block alt"><div class="wrap">
+    <h2>Fraccionamiento sin loteo</h2>
+    <p class="sub">Cada macizo se divide en dos fracciones. El valor de cada una se informa por consulta.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Fracción</th><th>Origen</th><th>Superficie aprox.</th><th>Valor</th></tr></thead>
+        <tbody id="frac"></tbody>
+      </table>
+    </div>
+    <p class="note">Superficies indicativas, resultado de dividir cada parcela en dos. La superficie y los límites definitivos surgirán de la mensura y la división que corresponda ante los organismos competentes. Las condiciones de escrituración se informan al consultar.</p>
+  </div></section>
+
+  <section id="contacto" class="block contact">
+    <div class="wrap">
+      <h2>Consultas</h2>
+      <p class="sub light">Solicite el plano, el KMZ y las condiciones de venta de cada fracción.</p>
+      <div class="cta">
+        <a class="btn btn-light" id="wa" target="_blank" rel="noopener" href="#">WhatsApp</a>
+        <a class="btn btn-ghost light" id="mail" href="#">Enviar correo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="assets/logo/propietas-logo.svg" alt="Propietas Inmobiliaria" width="121" height="50">
+    <p><strong>Lisandro Emanuel Prada Toledo</strong><br>Corredor Inmobiliario · Matrícula N° 117<br>Colegio de Corredores Inmobiliarios del Chubut (COCICH)<br>Propietas Inmobiliaria / NETRA SRL</p>
+    <p class="legal">Las superficies y límites son los indicados en el croquis según título y están sujetos a mensura. La información es orientativa y no constituye oferta vinculante.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="geo.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
