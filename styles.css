@@ -66,6 +66,9 @@ h2{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:800;color:var(--blue);line-hei
 .gallery button:hover img{transform:scale(1.05)}
 .gallery span{display:block;padding:10px 12px;font-size:.8rem;line-height:1.35;color:var(--mute)}
 .gallery li{overflow:hidden}
+.video{margin-top:32px;max-width:960px}
+.video video{width:100%;height:auto;aspect-ratio:16/9;border-radius:8px;background:#0f1140}
+.video figcaption{margin-top:8px;font-size:.8rem;color:var(--mute)}
 dialog{margin:auto;border:0;padding:0;background:transparent;max-width:min(96vw,1200px);max-height:94svh;color:#fff;overflow:visible}
 dialog::backdrop{background:#0b0c2ad9}
 dialog[open]{animation:rise .35s var(--ease)}

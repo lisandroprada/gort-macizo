@@ -3,14 +3,14 @@ window.CONFIG = {
   // Formato internacional sin "+": 54 9 + característica + número.
   whatsapp: "5492804503151",
   fotos: [
-    { f: "25", t: "Álamos y pastizal" },
+    { f: "alamos", t: "Álamos y pastizal" },
     { f: "30", t: "Hilera de álamos" },
-    { f: "07", t: "Álamos sobre terreno plano" },
+    { f: "pasto-alamos", t: "Álamos y tamariscos sobre el pastizal" },
+    { f: "verde", t: "Tamariscos y claro de pastizal" },
     { f: "41", t: "Pastizal y arboleda" },
-    { f: "35", t: "Calle de tierra de frente, con postes de energía" },
-    { f: "13", t: "Tendido eléctrico sobre la calle" },
+    { f: "verde2", t: "Arboleda de álamos y tamariscos" },
     { f: "32", t: "Tamariscos" },
-    { f: "18", t: "Sector abierto" }
+    { f: "35", t: "Calle de tierra de frente, con postes de energía" }
   ],
   email: "lisandro.prada@gmail.com",
   // Valores en USD por fracción. null = "Consultar".
